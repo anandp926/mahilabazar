@@ -1,0 +1,8 @@
+.item-head{
+    background: #e60000;
+    color: white;
+    border-bottom: 3px solid black;
+}
+.btn{
+    border-radius: 0;
+}

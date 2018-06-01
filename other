@@ -1,0 +1,159 @@
+<p>
+                This shirt is very good looking. it's purely made on cotton. You can buy this by clicking buy button.
+            </p>
+            <ul>
+                <li>It's good looking</li>
+                <li>Made of Cotton</li>
+                <li>An Original and branded  quality</li>
+                <li>Free shipping across country</li>
+                <li><b>CASH ON DELIVERY</b> available</li>
+            </p>
+
+            cart number-----------------
+
+<?php $cart_sql="select count(*) AS 'total' from cart WHERE cart_ref='$_SESSION[ref]';";
+                        $cart_run=mysqli_query($conn,$cart_sql);
+                        $count=mysqli_fetch_assoc($cart_run);
+                        if(!(isset($_SESSION['ref']))){
+                            echo"
+                        </div> CART $count[total]</button></button></span>
+                        ";
+                        }else{
+                            echo"
+                        </div> CART 0</button></button></span>
+                        ";
+                        }
+
+                        ?>
+                        <?php if(!(isset($_SESSION['uid']))){};?>
+                        <script type='text/javascript'>$(#myModal).moadal('show')</script>
+
+
+                        <?php if(!(isset($_SESSION['uid']))){ ?>
+                                            <?php echo "<script> $('#myModal').modal('show');</script>"; ?><?php }else {?>
+                                            <?php }?>
+
+
+                                            onclick="var a=2; if(a>1){my()}else(cart_ajax($rows['item_id'])) "
+
+
+
+                                            <div class='row' style='border:1px dotted silver;height: 102px '>
+                                            <div class='col-md-2'>
+                                                <img src='images/men/jeans/killer/blue/sm.jpg'>
+                                            </div>
+                                            <div class='col-md-2'>
+                                                <h4>$cart_rows[item_title]</h4>
+                                            </div>
+                                            <div class='col-md-2'>
+                                                <p class='text-center tb' style='padding-top: 4%'>&#8377<span>$cart_rows[item_cost]</span>&nbsp&nbsp&#8377<del>$cart_rows[item_price]</del>&nbsp<span style='color: red'>($cart_rows[item_discount]% OFF)</span></p>
+                                            </div>
+                                            <div class='col-md-2'>
+                                                <button class='btn btn-danger btn-block'>Remove</button>
+                                            </div>
+                                            <div class='col-md-2'>
+                                                <button class='btn btn-primary btn-block'>BUY</button>
+                                            </div>
+                                            </div>
+
+
+
+
+
+
+
+
+
+
+                                            <div class="form-group">
+                                                            <label>Item Image large</label>
+                                                            <input type="file" class="form-control" name="item_image" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Item Image small-1</label>
+                                                            <input type="file" class="form-control" name="item_image" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Item Image small-2</label>
+                                                            <input type="file" class="form-control" name="item_image" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Item Image small-3</label>
+                                                            <input type="file" class="form-control" name="item_image" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Item Image small-4</label>
+                                                            <input type="file" class="form-control" name="item_image" required>
+                                                        </div>
+
+
+
+
+
+var cacheName = 'eshop-v2';
+var filesToCache = [
+  './',
+  './images/bolt.jpg',
+'./images/bolt-landscape.jpg',
+'./images/bolt-mobile.jpg',
+'./images/products/cap.jpg',
+'./images/products/sports_band.jpg',
+'./images/products/sports_shoes.jpg',
+'./account.php',
+'./verify.php',
+  './contact.php',
+  './login.php',
+  './logout.php',
+  '/admin.php',
+  './header.php',
+  './success.php',
+  './manifest.json',
+  '/admin-update.php',
+  './orders.php',
+'./css/foundation.min.css',
+'./css/normalize.css',
+'./css/foundation.css'
+
+
+];
+
+self.addEventListener('install', function(e) {
+  console.log('[ServiceWorker] Install');
+  e.waitUntil(
+    caches.open(cacheName).then(function(cache) {
+      console.log('[ServiceWorker] Caching app shell');
+      return cache.addAll(filesToCache);
+    })
+  );
+});
+
+self.addEventListener('activate', function(e) {
+  console.log('[ServiceWorker] Activate');
+  e.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(cacheNames.map(function(thiscacheName) {
+        if (thiscacheName !== cacheName) {
+          console.log('[ServiceWorker] Removing old cache',thiscacheName);
+          return caches.delete(thiscacheName);
+        }
+      }));
+    })
+  );
+
+  return self.clients.claim();
+});
+
+self.addEventListener('fetch', function(e) {
+  console.log('[Service Worker] Fetch', e.request.url);
+    e.respondWith(
+      caches.match(e.request).then(function(response){
+
+      if(response){
+      console.log("[serviceWorker] found in cache",e.request.url);
+      return response;
+       }
+      return fetch(e.request);
+     })
+
+     )
+  });

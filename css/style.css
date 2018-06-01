@@ -1,0 +1,22 @@
+body{
+    background: #e6e6e6;
+}
+.container{
+    background: white;
+}
+.pp-title{
+    font-size: 40px;
+}
+.pp-desc-head{
+    font-size: 25px;
+    text-decoration: underline;
+}
+.pp-desc-details{
+font-size: 20px;
+}
+.pp-desc-details ul{
+    margin-top: 10px;
+}
+.list-group .list-group-item{
+    border: 0;
+}
